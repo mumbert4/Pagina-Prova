@@ -4,19 +4,23 @@ const app = express();//app ve a ser el servidor
 const path= require('path');//serveix per solucionar problemes de windows i linux, tema barres '/', '\'
 // settings
 app.set('port',3000);
+app.set('view engine','ejs');//ejs no fa falta improtar-lo, express el sol dur integrat
+app.set('views',__dirname + '/views');
+app.engine('html',require('ejs').renderFile);//procesarem els archius html com archius ejs, seguira tot igual
+
 
 //middlewares
 
 
 //routes
-app.get('/',(req,res)=>{
-    //res.sendFile(__dirname+'/views/index.html');
-    res.sendFile(path.join(__dirname, '/views/index.html'));//per solucionar lo des directoris 
-    //console.log(__dirname + 'views/index.html');
-});
+const router=require('./routes/index.js');
+app.use(router);
+//app.use(require('./routes/index.js') es lo mateix
 
 
 //static files(aixo ve a ser front end(html, css, imatges, etc))
+app.use(express.static(__dirname+ 'public'));
+
 
 //posam servidor al port 4000
 app.listen(app.get('port'),()=>{

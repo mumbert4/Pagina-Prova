@@ -1,11 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagina web NODE</title>
+    <title>
+        <%= title%>
+    </title>
+    <%- include ('partials/head.html') %>
+    <style>
+        body{
+            font-family: 'Spicy-rice',cursive;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Hola que tal</h1>
+    
+    <%- include ('partials/navigation.html') %>
 </body>
+
 </html>
