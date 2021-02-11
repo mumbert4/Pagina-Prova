@@ -1,5 +1,5 @@
 const express = require('express');
-const { dirname } = require('path');
+//const  dirname  = require('path');
 const app = express();//app ve a ser el servidor
 const path= require('path');//serveix per solucionar problemes de windows i linux, tema barres '/', '\'
 // settings
@@ -19,7 +19,7 @@ app.use(router);
 
 
 //static files(aixo ve a ser front end(html, css, imatges, etc))
-app.use(express.static(__dirname+ 'public'));
+app.use(express.static(path.join(__dirname, 'public/css')));
 
 
 //posam servidor al port 4000
